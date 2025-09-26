@@ -1,0 +1,59 @@
+ul { 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+#label{
+  font-weight: bold;
+  font-size: large;
+}
+
+input {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.list-card{
+  border: solid 1px #40537ddb;
+  border-radius: 12px;
+  padding: 16px;
+  width: max-content;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+button {
+  background: none; 
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 4px 10px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.2s;
+
+  &:hover {
+    background-color: #bb9af720;
+    border: 1px solid #bb9af7;
+  }
+}
