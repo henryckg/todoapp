@@ -1,0 +1,51 @@
+.list-card {
+  border: 1px solid #40537ddb;
+  border-radius: 12px;
+  width: max-content;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 12px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & h1 {
+    text-align: center;
+  }
+}
+
+input {
+  border: none;
+  background: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+
+  &:focus{
+    outline: none;
+  }
+}
