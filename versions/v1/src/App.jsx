@@ -1,8 +1,7 @@
-import { useState } from "react"
-import "./App.css"
+import { useState } from 'react'
+import './App.css'
 
-export default function App() {
-
+export default function App () {
   const [items, setItems] = useState([])
 
   const handleSubmit = (event) => {
@@ -23,21 +22,21 @@ export default function App() {
   }
 
   return (
-    <div className="list-card">
+    <div className='list-card'>
       <header>
         <h1>Lista del Supermercado</h1>
         <form onSubmit={handleSubmit}>
-          <input name="product" type="text" placeholder="Nuevo artículo..."/>
+          <input name='product' type='text' placeholder='Nuevo artículo...' />
         </form>
       </header>
 
       <section>
         <ul>
           {items.map((item, i) => (
-          <li key={i}>
-            <span>{item}</span>
-            <button onClick={() => handleDelete(i)}>&times;</button>
-          </li>)
+            <li key={i}>
+              <span>{item}</span>
+              <button onClick={() => handleDelete(i)}>&times;</button>
+            </li>)
           )}
         </ul>
       </section>
