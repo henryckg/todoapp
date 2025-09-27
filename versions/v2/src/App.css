@@ -42,7 +42,7 @@ header {
   }
 }
 
-input {
+#item-input {
   border: none;
   background: none;
   width: 100%;
@@ -52,6 +52,15 @@ input {
   &:focus{
     outline: none;
   }
+}
+
+.item-text {
+  margin-left: 12px;
+  flex-grow: 1;
+}
+
+.item-check {
+  cursor: pointer;
 }
 
 .delete-btn {

@@ -33,6 +33,7 @@ export default function App () {
         <h1>To Do List</h1>
         <form onSubmit={handleSubmit}>
           <input
+            id='item-input'
             type='text'
             name='item'
             placeholder='Introduce un producto...'
@@ -45,7 +46,8 @@ export default function App () {
             {
               items.map((item, i) => (
                 <li key={i}>
-                  <span>
+                  <input type='checkbox' className='item-check' />
+                  <span className='item-text'>
                     {item}
                   </span>
                   <button
