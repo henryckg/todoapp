@@ -15,7 +15,10 @@ export default function App () {
     setItems((prev) => (
       [
         ...prev,
-        item
+        {
+          item,
+          completed: false
+        }
       ]
     ))
 
@@ -25,6 +28,14 @@ export default function App () {
   const handleDelete = (i) => {
     const filteredList = items.filter((item, index) => index !== i)
     setItems(filteredList)
+  }
+
+  const handleCheckbox = (i) => {
+    const updatedItems = items.map((item, index) =>
+      index === i ? { ...item, completed: !item.completed } : item
+    )
+
+    setItems(updatedItems)
   }
 
   return (
@@ -46,9 +57,14 @@ export default function App () {
             {
               items.map((item, i) => (
                 <li key={i}>
-                  <input type='checkbox' className='item-check' />
-                  <span className='item-text'>
-                    {item}
+                  <input type='checkbox' className='item-check' onChange={() => handleCheckbox(i)} />
+                  <span
+                    className='item-text'
+                    style={{
+                      textDecoration: item.completed ? 'line-through' : 'none'
+                    }}
+                  >
+                    {item.item}
                   </span>
                   <button
                     className='delete-btn'

@@ -66,8 +66,13 @@ header {
   width: 18px;
   height: 18px;
   border: 1px solid #40537ddb;
-  border-radius: 4px;
+  border-radius: 100%;
+
+  &:checked {
+    background-color: rgba(105, 105, 105, 0.6);
+  }
 }
+
 
 .delete-btn {
   cursor: pointer;
