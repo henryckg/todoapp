@@ -1,25 +1,57 @@
+import { useState } from 'react'
 import './App.css'
 
 function App () {
+  const [products, setProducts] = useState([])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const formData = new window.FormData(e.target)
+    const product = formData.get('product')
+
+    if (product === '') return
+
+    setProducts((prev) => (
+      [
+        ...prev,
+        {
+          product,
+          completed: false
+        }
+      ]
+    ))
+
+    e.target.reset()
+  }
+
+  const handleDelete = (i) => {
+    const filteredItems = products.filter((item, index) => index !== i)
+    setProducts(filteredItems)
+  }
+
   return (
     <div className='card-list'>
       <header>
         <h1>To Do List</h1>
-        <form>
-          <input type='text' placeholder='Introduce un nuevo producto...' />
+        <form onSubmit={handleSubmit}>
+          <input type='text' name='product' placeholder='Introduce un nuevo producto...' />
         </form>
       </header>
 
       <main>
         <ul className='product-list'>
-          <li>
-            <input type='checkbox' />
-            <span>Carne</span>
-            <button>
-              <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-x'><path stroke='none' d='M0 0h24v24H0z' fill='none' /><path d='M18 6l-12 12' /><path d='M6 6l12 12' /></svg>
-            </button>
-          </li>
-          <li>Lechuga</li>
+          {
+            products.map((item, i) => (
+              <li key={i}>
+                <input type='checkbox' />
+                <span>{item.product}</span>
+                <button onClick={() => handleDelete(i)}>
+                  <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' className='icon icon-tabler icons-tabler-outline icon-tabler-x'><path stroke='none' d='M0 0h24v24H0z' fill='none' /><path d='M18 6l-12 12' /><path d='M6 6l12 12' /></svg>
+                </button>
+              </li>
+            ))
+          }
         </ul>
       </main>
     </div>
