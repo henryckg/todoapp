@@ -40,6 +40,7 @@ input {
     input[type=checkbox] {
       margin: 0;
       width: auto;
+      cursor: pointer;
     }
 
     span {
